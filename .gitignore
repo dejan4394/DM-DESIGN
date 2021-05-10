@@ -12,6 +12,7 @@
 /build
 
 # misc
+/signupbackend/.env
 .DS_Store
 .env.local
 .env.development.local
