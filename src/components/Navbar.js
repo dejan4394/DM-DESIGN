@@ -32,7 +32,7 @@ function Navbar() {
         <div className= "logo">
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           <i className="fas fa-home"></i>
-            DM
+            DM Design
           </Link>
         </div>
           

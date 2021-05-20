@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 function SignUp() {
 
   const [user, setUser] = useState({
-    fullName: "",
-    userName: "",
+    fullname: "",
+    username: "",
     email: "",
     password: ""
   });
@@ -20,29 +20,29 @@ function SignUp() {
     setUser((prevValue) => {
       if (name === "fullName") {
         return {
-          fullName: event.target.value,
-          userName: prevValue.userName,
+          fullname: event.target.value,
+          username: prevValue.username,
           email: prevValue.email,
           password: prevValue.password
         };
       } else if (name === "userName") {
         return {
-          fullName: prevValue.fullName,
-          userName: event.target.value,
+          fullname: prevValue.fullname,
+          username: event.target.value,
           email: prevValue.email,
           password: prevValue.password
         };
       }else if (name === "email") {
         return {
-          fullName: prevValue.fullName,
-          userName: prevValue.userName,
+          fullname: prevValue.fullname,
+          username: prevValue.username,
           email: event.target.value,
           password: prevValue.password
         };
       }else if (name === "password") {
         return {
-          fullName: prevValue.fullName,
-          userName: prevValue.userName,
+          fullname: prevValue.fullname,
+          username: prevValue.username,
           email: prevValue.email,
           password: event.target.value
         };
@@ -54,13 +54,23 @@ function SignUp() {
       event.preventDefault()
       const newSubmitedUser = user;
       console.log(newSubmitedUser);
+      const URL = "http://localhost:8080/users/signup";
 
-      axios.post("http://localhost:4000/app/signup", newSubmitedUser)
-    .then(res => console.log(res.data))
-
+      axios(URL, {
+        method: "POST",
+        headers: {
+          'content-type': 'application/json',
+        },
+        data: newSubmitedUser,
+      })
+        .then(response => response.data)
+        .catch(error => {
+          throw error;
+        });
+        
   setUser({
-    fullName: "" ,
-    userName: "",
+    fullname: "" ,
+    username: "",
     email: "" , 
     password: "" 
     })
@@ -81,13 +91,13 @@ function SignUp() {
           onChange={SignUpNewUser}
           name="fullName"
           placeholder="Full Name"
-          value={user.fullName}
+          value={user.fullname}
         />
         <input
           onChange={SignUpNewUser}
           name="userName"
           placeholder="Username"
-          value={user.userName}
+          value={user.username}
         />
         <input
           onChange={SignUpNewUser}
@@ -102,9 +112,9 @@ function SignUp() {
           placeholder="Password"
           value={user.password}
         />
-        <Link to="/sign-in">
+       
         <button type="submit" onClick= {submitUser}>Go</button>
-        </Link>
+       
       </form>
     </div>
     

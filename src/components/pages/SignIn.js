@@ -30,21 +30,32 @@ function SignIn (){
       }
     
         function logUser(event){
-        
-          const newLogedUser = logedUser;
-        
-    
-          axios.post("http://localhost:4000/app/signup", newLogedUser, )
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-
           event.preventDefault()
+          const newLogedUser = logedUser;
+          console.log(newLogedUser);
+        
+          const URL = "http://localhost:8080/users/signin";
+
+      axios(URL, {
+        method: "POST",
+        headers: {
+          'content-type': 'application/json',
+        },
+        data: newLogedUser,
+      })
+        .then(response => response.data)
+        .catch(error => {
+          throw error;
+        });
+
+
+          
     
       setLogedUser({
         email: "" , 
         password: "" 
         })
-        // window.location.href ="http://localhost:3000/sign-in"
+        window.location.href ="http://localhost:3000/services"
         }
     
         
