@@ -1,32 +1,28 @@
 import React,{useState} from "react";
 import "../SignIn.css"
 import "../Home.css";
+import { useHistory } from "react-router-dom";
+
 // import Heading from "../Heading"
 import axios from "axios";
 
 function SignIn (){
+  const history = useHistory();
+
+
     const [logedUser, setLogedUser] = useState({
         email: "",
-        password: ""
+        password: "",
+        Message: ""
       });
     
       function SignInUser(event) {
         const {value,name} = event.target
         
     
-        setLogedUser((prevValue) => {
-          if (name === "email") {
-            return {
-              email: event.target.value,
-              password: prevValue.password
-            };
-          }else if (name === "password") {
-            return {
-              email: prevValue.email,
-              password: event.target.value
-            };
-          }
-        });
+        setLogedUser((prevValue)=>({
+          ...prevValue,
+          [name]: value}));
       }
     
         function logUser(event){
@@ -43,9 +39,11 @@ function SignIn (){
         },
         data: newLogedUser,
       })
-        .then(response => response.data)
+        .then((res) => {
+            setLogedUser({Message: res.status})
+                 history.push("/services")})
         .catch(error => {
-          throw error;
+            setLogedUser({Message: error.response.data.message})
         });
 
 
@@ -55,7 +53,6 @@ function SignIn (){
         email: "" , 
         password: "" 
         })
-        window.location.href ="http://localhost:3000/services"
         }
     
         
@@ -86,6 +83,7 @@ function SignIn (){
             <button type="submit" onClick= {logUser}>Go</button>
            
           </form>
+          <p>{logedUser.Message}</p>
         </div>
         
        

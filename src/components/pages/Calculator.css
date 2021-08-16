@@ -1,0 +1,17 @@
+.container{
+    justify-content: space-between;
+    height:600px;
+    padding: 80px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.cab-img{
+    background-color: aliceblue;
+}
+
+.res-label{
+    display: flex;
+    align-items: center;
+}

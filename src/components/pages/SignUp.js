@@ -2,60 +2,37 @@ import React, { useState } from "react";
 import "../Home.css";
 // import Heading from "../Heading"
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function SignUp() {
+  const history = useHistory();
 
   const [user, setUser] = useState({
     fullname: "",
     username: "",
     email: "",
-    password: ""
+    password: "",
+    Message: "",
   });
 
   function SignUpNewUser(event) {
     const {value,name} = event.target
     console.log(event.target);
 
-    setUser((prevValue) => {
-      if (name === "fullName") {
-        return {
-          fullname: event.target.value,
-          username: prevValue.username,
-          email: prevValue.email,
-          password: prevValue.password
-        };
-      } else if (name === "userName") {
-        return {
-          fullname: prevValue.fullname,
-          username: event.target.value,
-          email: prevValue.email,
-          password: prevValue.password
-        };
-      }else if (name === "email") {
-        return {
-          fullname: prevValue.fullname,
-          username: prevValue.username,
-          email: event.target.value,
-          password: prevValue.password
-        };
-      }else if (name === "password") {
-        return {
-          fullname: prevValue.fullname,
-          username: prevValue.username,
-          email: prevValue.email,
-          password: event.target.value
-        };
-      }
-    });
+    setUser((prevValue)=> ({
+      ...prevValue,
+      [name]: value
+    }));
   }
 
-    function submitUser(event){
+  function submitUser(event){
+
       event.preventDefault()
       const newSubmitedUser = user;
       console.log(newSubmitedUser);
       const URL = "http://localhost:8080/users/signup";
-
+ 
       axios(URL, {
         method: "POST",
         headers: {
@@ -63,10 +40,15 @@ function SignUp() {
         },
         data: newSubmitedUser,
       })
-        .then(response => response.data)
-        .catch(error => {
-          throw error;
-        });
+      .then((res) => {
+        setUser({Message: res.status},
+          ()=> console.log(user.Message.message))
+        history.push("/services")})
+      .catch(err => {
+        setUser({Message: err.status},
+          ()=> console.log(user.Message.message))
+      });
+
         
   setUser({
     fullname: "" ,
@@ -74,7 +56,6 @@ function SignUp() {
     email: "" , 
     password: "" 
     })
-    window.location.href ="http://localhost:3000/sign-in"
     }
 
     
@@ -89,13 +70,13 @@ function SignUp() {
       <form >
         <input
           onChange={SignUpNewUser}
-          name="fullName"
+          name="fullname"
           placeholder="Full Name"
           value={user.fullname}
         />
         <input
           onChange={SignUpNewUser}
-          name="userName"
+          name="username"
           placeholder="Username"
           value={user.username}
         />
@@ -116,6 +97,8 @@ function SignUp() {
         <button type="submit" onClick= {submitUser}>Go</button>
        
       </form>
+      <p>{user.Message}</p>
+
     </div>
     
    

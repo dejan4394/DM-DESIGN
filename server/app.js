@@ -1,5 +1,5 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 const logger = require('morgan');
 const mongoose = require("mongoose");
 const passport = require("./passport");
@@ -24,22 +24,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //----------------------------
 
-app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}))
 app.use(cors());
+//------INNITIALIZE PASSPORT----
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 //------ROOT ROUTES----------
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //---------------------------
 
-//------INNITIALIZE PASSPORT----
 
-app.use(passport.initialize());
-// app.use(passport.session());
 
 //------------------------------
 
-app.listen( PORT, () => log(`Srever strarted at ${PORT}`));
+app.listen( PORT, () => log(`Server strarted at ${PORT}`));
 
 
 module.exports = app;
