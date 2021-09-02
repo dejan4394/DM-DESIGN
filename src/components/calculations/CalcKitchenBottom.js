@@ -18,7 +18,7 @@ useImperativeHandle(
     ref,
     () => ({
         calculate () {
-            setTop('|   '+(dimensions.width - thikness) + '  x  7' )
+            setTop('|   '+(dimensions.width - 2 * thikness) + '  x  7' )
             setBottom('||   ' + dimensions.width + ' x ' + dimensions.depth + '   ||')
             setLeft(dimensions.height + '  x  ' + dimensions.depth + '   ||')
             setRight(dimensions.height + '  x  ' + dimensions.depth + '   ||')

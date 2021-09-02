@@ -17,7 +17,7 @@ const Calculator = () => {
         depth: Number
     })
 
-    const [ selectedThikness, setSelectedThikness ] = useState("")
+    const [ selectedThikness, setSelectedThikness ] = useState("1.6")
 
 //----------INPUT DIMENSIONS-----------
 
@@ -42,6 +42,7 @@ const handleSelect = (selectedIndex)=>{
     console.log(index);
 }
 
+//-----CALCULATE------
 const calculate1 = (e)=> {
     e.preventDefault()
     console.log("sranjagolemo");
