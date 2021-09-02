@@ -1,23 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import "./Calculator.css"
-import Result from './Result'
+import Cabinets from '../Cabinets';
+import CalcKitchenTop from '../calculations/CalcKitchenTop';
+import CalcKitchenBottom from '../calculations/CalcKitchenBottom';
+import Closet from '../calculations/Closet';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Button } from "../Button";
 
 const Calculator = () => {
-    // const [ a, setA ] = useState('')
-    // const [ b, setB ] = useState('')
-    // const [ c, setC ] = useState('')
+
+    const childRef = useRef();
+    
     const [ dimensions, setDimensions ] = useState({
         width: Number,
         height: Number,
         depth: Number
     })
-    const [ top, setTop ] = useState('')
-    const [ left, setLeft ] = useState('')
-    const [ right, setRight ] = useState('')
 
-    // var leftAndRight = c + 'x' + b;
-    // var top = (a - 3.2) + 'x' + c;
-    
+    const [ selectedThikness, setSelectedThikness ] = useState("")
 
 //----------INPUT DIMENSIONS-----------
 
@@ -31,18 +31,45 @@ const Calculator = () => {
             [name]: value
         }))
     }
-//----------CALCULATE---------------
-    const calculate = (e)=> {
-        e.preventDefault()
-        setTop('|  '+(dimensions.width - 3.2) + '  x  ' + dimensions.depth)
-        setLeft(dimensions.height + '  x  ' + dimensions.depth + '  ||')
-        setRight(dimensions.height + '  x  ' + dimensions.depth + '  ||')
-    }
+
+
+//---------SELECT SPECIFIC SLIDE-------------
+
+const [index, setIndex] = useState(0);
+
+const handleSelect = (selectedIndex)=>{
+    setIndex( selectedIndex )
+    console.log(index);
+}
+
+const calculate1 = (e)=> {
+    e.preventDefault()
+    console.log("sranjagolemo");
+    childRef.current.calculate();
+    
+}
+
+//----SELECT THIKNESS----------------
+
+const selectThikness = (e)=>{
+
+    setSelectedThikness(e.target.value)
+}
+
 
     return (
-        <div className="container">
+        <div className="container-calculator">
             <div className="cab-img">
-                <img src="https://i.shgcdn.com/13d9f7ce-fa80-4f6e-b521-61e862bb98cb/-/format/auto/-/preview/3000x3000/-/quality/lighter/"/>
+                <Cabinets handleSelect = { handleSelect } />
+            </div>
+            <div className="inputs">
+            <div className = "thikness">
+                <select onChange = { selectThikness } >
+                    <option >-- Choose thickness --</option>
+                    <option value="1.6">1.6</option>
+                    <option value="1.8">1.8</option>
+                    <option value="3.2">3.2</option>
+                </select>
             </div>
             <form>
                 <input 
@@ -62,17 +89,53 @@ const Calculator = () => {
                     type = "number" 
                     value = {dimensions.depth} 
                     placeholder = 'Add depth' 
-                    onChange = { inputDimensions }/>
-                
-                <button onClick={ calculate }>Calculate</button>
-                
+                    onChange = { inputDimensions }/> 
             </form>
-            <div className='results'>
-                <Result labelText = "Top" valueName = {top}/>
-                <Result labelText = "Botom" valueName = {top}/>
-                <Result labelText = "Left" valueName = {left}/>
-                <Result labelText = "Right" valueName = {right}/>
+            
+            <Button children = {"CALCULATE"} onClick = { calculate1 }/>
             </div>
+
+            <div className = "results">
+                {(() => {
+                
+                switch (index) {
+                    case 0:
+                        return(
+                        <CalcKitchenTop thikness = { selectedThikness } ref = { childRef } dimensions = { dimensions }/>
+                        )
+                    case 1:
+                        return (
+                        <div>
+                        <CalcKitchenBottom thikness = { selectedThikness } ref = { childRef } dimensions = { dimensions } />
+                        </div>
+                        )
+                        case 2:
+                        return(
+                        <Closet thikness = { selectedThikness } ref = { childRef } dimensions = { dimensions }/>
+                        )
+                        case 3:
+                        return(
+                        <div>
+                        ddfjhgldjkshlkjhslg                          
+                        </div>
+                        )
+                        case 4:
+                        return(
+                        <div>
+                        dsjkfhetlwhnbswlgjknwlsfdjkn                      
+                        </div>
+                        )
+                    default:
+                        return (
+                        <div>You are a User.</div>
+                        )
+                }
+
+                })()}
+            </div>
+            
+                
+            
                 
         </div>
     )

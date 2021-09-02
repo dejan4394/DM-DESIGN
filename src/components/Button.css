@@ -3,11 +3,12 @@
 }
 
 .btn{
-    padding: 8px 20px;
+    padding: 18px 20px;
     border-radius: 2px;
     outline: none;
     border:none;
     cursor:pointer;
+    margin-bottom: 20px;
 }
 
 .btn--primary{

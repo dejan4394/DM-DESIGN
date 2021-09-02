@@ -1,17 +1,41 @@
-.container{
+.container-calculator{
     justify-content: space-between;
     height:600px;
-    padding: 80px 0;
+    padding: 20px 0;
     text-align: center;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 20px;
+   
 }
 
-.cab-img{
-    background-color: aliceblue;
+.cab-img{  
+    background-color: rgb(85, 100, 112)  
 }
 
-.res-label{
-    display: flex;
-    align-items: center;
+.thikness{
+    padding-bottom: 20px;
 }
+
+.results{
+    display: grid;
+  
+}
+
+.results-label{
+    display: table-row;
+}
+
+.results-label label{
+    display: table-cell;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .container-calculator {
+      flex-direction: column;
+      
+    }
+   
+   
+  }

@@ -1,8 +1,13 @@
 
-.messi{
-height: 500px;
+.products-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
 }
 
-.d-block{
-    height: 480px;
+.carousel{
+   width: 500px;
+   
 }

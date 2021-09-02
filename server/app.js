@@ -44,7 +44,7 @@ app.use('/users', usersRouter);
 
 //------------------------------
 
-app.listen( PORT, () => log(`Server strarted at ${PORT}`));
+app.listen( PORT, () => log(`Server started at ${PORT}`));
 
 
 module.exports = app;
