@@ -33,7 +33,9 @@ useImperativeHandle(
 
     return (
         <div>
-        
+        <di>
+            <h3>CUTTING LIST</h3>
+        </di>
         <Result labelText = "Top : 2x" valueName = {top}/>
         <Result labelText = "Botom" valueName = {bottom}/> 
         <Result labelText = "Left" valueName = {left}/>

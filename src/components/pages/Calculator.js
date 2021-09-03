@@ -45,8 +45,11 @@ const handleSelect = (selectedIndex)=>{
 //-----CALCULATE------
 const calculate1 = (e)=> {
     e.preventDefault()
-    console.log("sranjagolemo");
-    childRef.current.calculate();
+    
+
+    (isNaN(dimensions.width) || isNaN(dimensions.height) || isNaN(dimensions.depth))
+    ? alert("VNESETE GI POTREBNITE DIMENZII !!!") 
+    : childRef.current.calculate();
     
 }
 
@@ -66,7 +69,7 @@ const selectThikness = (e)=>{
             <div className="inputs">
             <div className = "thikness">
                 <select onChange = { selectThikness } >
-                    <option >-- Choose thickness --</option>
+                    <option >-- Material thickness --</option>
                     <option value="1.6">1.6</option>
                     <option value="1.8">1.8</option>
                     <option value="3.2">3.2</option>
