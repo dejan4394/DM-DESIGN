@@ -44,9 +44,6 @@ const handleSelect = (selectedIndex)=>{
 
 //-----CALCULATE------
 const calculate1 = (e)=> {
-    e.preventDefault()
-    
-
     (isNaN(dimensions.width) || isNaN(dimensions.height) || isNaN(dimensions.depth))
     ? alert("VNESETE GI POTREBNITE DIMENZII !!!") 
     : childRef.current.calculate();
