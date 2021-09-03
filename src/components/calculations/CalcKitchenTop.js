@@ -29,10 +29,10 @@ useImperativeHandle(
 
 
     return (
+        <div className="results">
         <div>
-        <di>
             <h3>CUTTING LIST</h3>
-        </di>
+        </div>
         <Result labelText = "Top" valueName = {top}/>
         <Result labelText = "Botom" valueName = {top}/> 
         <Result labelText = "Left" valueName = {left}/>

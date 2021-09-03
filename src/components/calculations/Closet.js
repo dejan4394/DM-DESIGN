@@ -33,9 +33,9 @@ const Closet = forwardRef(({dimensions, thikness}, ref) => {
 
     return (
         <div>
-        <di>
+        <div>
             <h3>CUTTING LIST</h3>
-        </di>
+        </div>
         <Result labelText = "1.   Top" valueName = {top}/>
         <Result labelText = "2.   Botom" valueName = {top}/> 
         <Result labelText = "3.   Left" valueName = {left}/>
