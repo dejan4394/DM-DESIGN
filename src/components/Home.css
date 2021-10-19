@@ -17,7 +17,8 @@
   .container-fluid {
     justify-content: center;
     height:600px;
-    background-image: url(https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2018/4/23/1/HUHH2018-Curb-Appeal_Seattle-WA_11.jpg.rend.hgtvcom.966.644.suffix/1524514638493.jpeg);
+    background-image: url(https://www.sleekworld.com/content/dam/sleek/kitchen-landing/TheSoloist%20Inspiration.jpg);
+    background-size: contain;
     padding: 80px 0;
     text-align: center;
     display: flex;
