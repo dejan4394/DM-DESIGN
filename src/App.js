@@ -8,6 +8,7 @@ import Services from "./components/pages/Services"
 import Products from "./components/pages/Products";
 import SignIn from "./components/pages/SignIn";
 import Calculator from "./components/pages/Calculator";
+import Footer from "./components/Footer";
 
 
 
@@ -28,6 +29,7 @@ function App() {
 
 
     </Switch>
+    <Footer />
     </Router>
     
     

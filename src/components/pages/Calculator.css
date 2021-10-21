@@ -1,6 +1,5 @@
 .container-calculator{
     justify-content: space-between;
-    height:600px;
     padding: 20px 0;
     text-align: center;
     display: grid;
@@ -10,7 +9,8 @@
 }
 
 .cab-img{  
-    background-color: rgb(85, 100, 112)  
+    display: flex;
+    width: auto;
 }
 
 .thikness{
@@ -36,6 +36,8 @@
       flex-direction: column;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
+
+    
    
     
    
