@@ -7,7 +7,8 @@
     padding: 60px;
     display: flex;
     flex-wrap: wrap;
-    width: fit-content;
+    width: auto;
+    background-color: white;
   }
   
   .footer-left{

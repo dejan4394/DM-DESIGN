@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 20px;
+    color: white;
    
 }
 
@@ -17,9 +18,8 @@
     padding-bottom: 20px;
 }
 
-.results{
-    display: grid;
-  
+.cutting-list{
+    text-align: -webkit-center;
 }
 
 .results-label{

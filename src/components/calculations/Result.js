@@ -3,8 +3,8 @@ import React from 'react'
 const Result = ({ labelText, valueName }) => {
     return (
         <div className='results-label'>
-            <label>{labelText}</label>
-            <input name="left-side" value = {valueName}/>
+            <label htmlFor="nameOfpart">{labelText}</label>
+            <input type="text" id="nameOfpart" name="left-side" value = {valueName}/>
         </div>
     )
 }

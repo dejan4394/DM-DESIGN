@@ -9,7 +9,7 @@ import Products from "./components/pages/Products";
 import SignIn from "./components/pages/SignIn";
 import Calculator from "./components/pages/Calculator";
 import Footer from "./components/Footer";
-
+import './App.css';
 
 
 function App() {

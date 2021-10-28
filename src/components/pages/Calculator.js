@@ -5,7 +5,7 @@ import CalcKitchenTop from '../calculations/CalcKitchenTop';
 import CalcKitchenBottom from '../calculations/CalcKitchenBottom';
 import Closet from '../calculations/Closet';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
-import { Button } from "../Button";
+import {Button} from "../Button";
 
 const Calculator = () => {
 
@@ -93,7 +93,7 @@ const selectThikness = (e)=>{
                     onChange = { inputDimensions }/> 
             </form>
             
-            <Button children = {"CALCULATE"} onClick = { calculate1 }/>
+            <Button linkTo='/calculator' children = {"CALCULATE"} onClick = { calculate1 }/>
             </div>
 
             <div className = "results">

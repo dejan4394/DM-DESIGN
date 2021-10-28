@@ -29,7 +29,7 @@ useImperativeHandle(
 
 
     return (
-        <div className="results">
+        <div className='cutting-list'>
         <div>
             <h3>CUTTING LIST</h3>
         </div>
