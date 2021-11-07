@@ -1,9 +1,8 @@
 .container-calculator{
+    display: flex;
     justify-content: space-between;
     padding: 20px 0;
     text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     margin: 20px;
     color: white;
    
@@ -11,15 +10,30 @@
 
 .cab-img{  
     display: flex;
-    width: auto;
+    margin: 10px;
+}
+
+.inputs{
+    margin: 10px;
 }
 
 .thikness{
     padding-bottom: 20px;
 }
 
+.calculator-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results{
+    margin: 10px;
+}
+
 .cutting-list{
     text-align: -webkit-center;
+    
 }
 
 .results-label{
@@ -33,8 +47,13 @@
 
 @media (max-width: 800px) {
     .container-calculator {
-      flex-direction: column;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cutting-list{
+        text-align: -webkit-center;
+        margin-top: 50px;
     }
 
     

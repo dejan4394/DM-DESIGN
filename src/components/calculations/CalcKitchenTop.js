@@ -12,6 +12,10 @@ const [ back, setBack ] = useState('')
 const [ door, setDoor ] = useState('')
 const [ shelves, setShelves ] = useState('')
 
+const cuttingList = {top, left, right,back,door,shelves}
+
+
+
 useImperativeHandle(
     ref,
     () => ({
@@ -23,8 +27,15 @@ useImperativeHandle(
             setBack((dimensions.height - 0.5) + '  x  ' + (dimensions.width - 0.5))
             setDoor('||   ' + (dimensions.height - 0.4) + ' x ' + (dimensions.width/2 - 0.4) + '   ||')
             setShelves('|  ' + (dimensions.width - (2 * thikness + 0.3)) + '  x  ' + (dimensions.depth - 5))
+            
+            
+        },
+        createCuttingList (){
+
+            console.log(cuttingList);
         }
-    }),
+
+    })
 )
 
 
@@ -33,15 +44,19 @@ useImperativeHandle(
         <div>
             <h3>CUTTING LIST</h3>
         </div>
+        <form>
         <Result labelText = "Top" valueName = {top}/>
         <Result labelText = "Botom" valueName = {top}/> 
         <Result labelText = "Left" valueName = {left}/>
         <Result labelText = "Right" valueName = {right}/>
         <Result labelText = "Back" valueName = {back}/>
         <Result labelText = "Shelves" valueName = {shelves}/>
-        <Result labelText = "Door : 2 x" valueName = {door}/>                      
+        <Result labelText = "Door : 2 x" valueName = {door}/>
+        </form>                      
         </div>
     )
 })
 
 export default CalcKitchenTop
+
+

@@ -11,13 +11,11 @@ const Calculator = () => {
 
     const childRef = useRef();
     
-    const [ dimensions, setDimensions ] = useState({
-        width: Number,
-        height: Number,
-        depth: Number
-    })
+    const [ dimensions, setDimensions ] = useState({})
 
     const [ selectedThikness, setSelectedThikness ] = useState("1.6")
+
+    const [ dimensionList, setDimensionList ] = useState({})
 
 //----------INPUT DIMENSIONS-----------
 
@@ -43,12 +41,17 @@ const handleSelect = (selectedIndex)=>{
 }
 
 //-----CALCULATE------
-const calculate1 = (e)=> {
+const calculate1 = ()=> {
     (isNaN(dimensions.width) || isNaN(dimensions.height) || isNaN(dimensions.depth))
     ? alert("VNESETE GI POTREBNITE DIMENZII !!!") 
     : childRef.current.calculate();
-    
 }
+
+
+const downloadList=()=>{
+    childRef.current.createCuttingList()
+
+        }
 
 //----SELECT THIKNESS----------------
 
@@ -92,8 +95,10 @@ const selectThikness = (e)=>{
                     placeholder = 'Add depth' 
                     onChange = { inputDimensions }/> 
             </form>
-            
+            <div className='calculator-buttons'>
             <Button linkTo='/calculator' children = {"CALCULATE"} onClick = { calculate1 }/>
+            <Button linkTo='/calculator' children = {"DOWNLOAD CUTTING LIST"} onClick = { downloadList }/>
+            </div>
             </div>
 
             <div className = "results">
@@ -102,7 +107,7 @@ const selectThikness = (e)=>{
                 switch (index) {
                     case 0:
                         return(
-                        <CalcKitchenTop thikness = { selectedThikness } ref = { childRef } dimensions = { dimensions }/>
+                        <CalcKitchenTop  thikness = { selectedThikness } ref = { childRef } dimensions = { dimensions }/>
                         )
                     case 1:
                         return (

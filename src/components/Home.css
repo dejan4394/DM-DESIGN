@@ -16,9 +16,9 @@
   
   .container-fluid {
     justify-content: center;
-    height:600px;
+    height:800px;
     background-image: url(https://www.sleekworld.com/content/dam/sleek/kitchen-landing/TheSoloist%20Inspiration.jpg);
-    background-size: contain;
+    background-size: cover;
     padding: 80px 0;
     text-align: center;
     display: flex;
