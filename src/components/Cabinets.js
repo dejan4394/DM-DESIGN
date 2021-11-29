@@ -18,7 +18,7 @@ const Cabinets = ({handleSelect}) => {
                     <p className="legend">Closet with sliding doors</p>
                 </div>
                 <div>
-                    <img src={process.env.PUBLIC_URL + '/plakar_200_210_so_broevi.png'} alt="sliding door closet" />
+                    <img src={`${process.env.PUBLIC_URL}/plakar_200_210_so_broevi.png`} alt="sliding door closet" />
                     <p className="legend">Closet with sliding doors</p>
                 </div>
                 <div>

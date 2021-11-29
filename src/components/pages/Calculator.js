@@ -15,8 +15,6 @@ const Calculator = () => {
 
     const [ selectedThikness, setSelectedThikness ] = useState("1.6")
 
-    const [ dimensionList, setDimensionList ] = useState({})
-
 //----------INPUT DIMENSIONS-----------
 
     const inputDimensions = (e)=>{

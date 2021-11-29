@@ -40,7 +40,7 @@ passport.authenticate("local-signin", function(err, user, next){
 
   if(err){
     return res.status(500).json({
-    message: err,
+    message: err
   });
 }
 
@@ -48,11 +48,11 @@ passport.authenticate("local-signin", function(err, user, next){
 req.logIn(user, (err) =>{
   if(err){
     return res.status(500).json({
-      message: err,
+      message: err
     });
   }
   return res.json({
-    message:"Uspesno se logiravte!!!",
+    message:"Uspesno se logiravte!!!"
   });
 })
 

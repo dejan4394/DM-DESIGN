@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "../Home.css";
-// import Heading from "../Heading"
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-// import { Link } from "react-router-dom";
+
 
 function SignUp() {
   const history = useHistory();
@@ -18,7 +17,6 @@ function SignUp() {
 
   function SignUpNewUser(event) {
     const {value,name} = event.target
-    console.log(event.target);
 
     setUser((prevValue)=> ({
       ...prevValue,
@@ -50,19 +48,18 @@ function SignUp() {
       });
 
         
-  setUser({
-    fullname: "" ,
-    username: "",
-    email: "" , 
-    password: "" 
-    })
+      setUser({
+        fullname: "" ,
+        username: "",
+        email: "" , 
+        password: "" 
+        })
     }
 
     
 
   return (
     <div className="container-fluid">
-   
     <div className="container-signIn">
     <h1>
         SIGN UP

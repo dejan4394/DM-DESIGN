@@ -9,7 +9,6 @@ import axios from "axios";
 function SignIn (){
   const history = useHistory();
 
-
     const [logedUser, setLogedUser] = useState({
         email: "",
         password: "",
@@ -83,7 +82,7 @@ function SignIn (){
             <button type="submit" onClick= {logUser}>Go</button>
            
           </form>
-          <p>{logedUser.Message}</p>
+          <p className="err-msg-sign-in">{logedUser.Message}</p>
         </div>
         
        
