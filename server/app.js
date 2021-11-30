@@ -8,10 +8,13 @@ const usersRouter = require('./routes/users');
 const path = require("path")
 const PORT = process.env.PORT || 8080;
 const log = console.log;
+const dotenv = require("dotenv")
+
+dotenv.config()
 
 const app = express();
 
-mongoose.connect('mongodb://ilina2018:ilinamalinova2018@signup-shard-00-00.pdmrz.mongodb.net:27017,signup-shard-00-01.pdmrz.mongodb.net:27017,signup-shard-00-02.pdmrz.mongodb.net:27017/DmDesignUsers?ssl=true&replicaSet=atlas-10ipbb-shard-0&authSource=admin&retryWrites=true&w=majority', {
+mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
