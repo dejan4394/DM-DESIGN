@@ -12,22 +12,22 @@ passport.authenticate("local-signup", function(err, user, info){
     return res.status(500).json({
     message: "Oops something hapenned",
     err: err.message || "inter server error"
-  })
-}
-
-//----PERSISTENT LOGIN----------
-req.logIn(user, (err) =>{
-  if(err){
-    return res.status(500).json({
-      message: err,
-    });
+    })
   }
-  return res.json({
-    message:"Uspesno se registriravte!!!",
-  });
-})
 
-})(req, res);
+    //----PERSISTENT LOGIN----------
+    req.logIn(user, (err) =>{
+      if(err){
+        return res.status(500).json({
+          message: err,
+        });
+      }
+      return res.json({
+        message:"Uspesno se registriravte!!!",
+      });
+    })
+
+    })(req, res);
 
 });
 

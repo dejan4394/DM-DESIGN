@@ -8,7 +8,7 @@ function SignUp() {
   const history = useHistory();
 
   const [user, setUser] = useState({
-    fullname: "",
+    fullName: "",
     username: "",
     email: "",
     password: "",
@@ -49,7 +49,7 @@ function SignUp() {
 
         
       setUser({
-        fullname: "" ,
+        fullName: "",
         username: "",
         email: "" , 
         password: "" 
@@ -67,9 +67,9 @@ function SignUp() {
       <form >
         <input
           onChange={SignUpNewUser}
-          name="fullname"
+          name="fullName"
           placeholder="Full Name"
-          value={user.fullname}
+          value={user.fullName}
         />
         <input
           onChange={SignUpNewUser}

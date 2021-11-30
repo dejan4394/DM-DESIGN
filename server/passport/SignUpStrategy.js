@@ -17,6 +17,8 @@ const SignUpStrategy = new LocalStrategy({ passReqToCallback: true, usernameFiel
 
         const ecrypted_password = bcrypt.hashSync(password, salt);
         const newUser = new User({
+            fullName: req.body.fullName,
+            username: req.body.username,
             email,
             password: ecrypted_password
         });
